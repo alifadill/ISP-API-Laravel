@@ -1,6 +1,7 @@
 # Tim-B-ISP-Backend
 
-
+1. Ali Aziz Fadillah
+2. Gani Ramadhan
 
 ## Getting started
 
