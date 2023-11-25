@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,31 +19,33 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/orders', function () {
-    return response()->json(
-        // $data, 200, $headers
-        [
-            "message"=>"GET Method Success"
-        ], 200
-    );
-});
+// Route::get('/orders', function () {
+//     return response()->json(
+//         // $data, 200, $headers
+//         [
+//             "message"=>"GET Method Success"
+//         ], 200
+//     );
+// });
 
-Route::post('/order', function () {
-    return response()->json(["message"=>"POST Method Success"], 201);
-});
+// Route::post('/order', function () {
+//     return response()->json(["message"=>"POST Method Success"], 201);
+// });
 
-Route::put('/order/{id}', function ($id) {
-    return response()->json(
-        [
-        "message"=>"PUT Method Success " . $id
-        ], 200
-    );
-});
+// Route::put('/order/{id}', function ($id) {
+//     return response()->json(
+//         [
+//         "message"=>"PUT Method Success " . $id
+//         ], 200
+//     );
+// });
 
-Route::delete('/order/{id}', function ($id) {
-    return response()->json(
-        [
-        "message"=>"DELETE Method Success " . $id
-        ], 200
-    );
-});
+// Route::delete('/order/{id}', function ($id) {
+//     return response()->json(
+//         [
+//         "message"=>"DELETE Method Success " . $id
+//         ], 200
+//     );
+// });
+
+Route::apiResource('order', OrderController::class);
