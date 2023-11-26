@@ -18,8 +18,13 @@ return new class extends Migration
             $table->string('city');
             $table->string('status_id');
             $table->string('user_id');
-            $table->string('teknisi_id');
             $table->string('paket_id');
+            $table->string('teknisi_id');
+
+            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('teknisi_id')->references('id')->on('teknisis');
+            $table->foreign('paket_id')->references('id')->on('pakets');         
             $table->timestamps();
         });
     }

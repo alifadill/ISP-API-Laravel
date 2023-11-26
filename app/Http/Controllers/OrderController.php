@@ -13,6 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::paginate(10);
+        // dd($orders);
         return response()->json([
             'data'=>$orders
         ]);
@@ -40,11 +41,11 @@ class OrderController extends Controller
             'address'=>$request->address,
             'subdistrict'=>$request->subdistrict,
             'city'=>$request->city,
-            'status_id'=>$request->status_id,
-            'user_id'=>$request->user_id,
-            'teknisi_id'=>$request->teknisi_id,
-            'paket_id'=>$request->paket_id
         ]);
+        // $order->'status_id'=>$request->status_id,
+        // 'user_id'=>$request->user_id,
+        // 'teknisi_id'=>$request->teknisi_id,
+        // 'paket_id'=>$request->paket_id
         return response()->json([
             'data'=>$order
         ]);
@@ -55,6 +56,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+        // dd($order);
+        $status = $order->status;
+        dd($status);
         return response()->json([
             'data'=>$order
         ], 200
@@ -94,7 +98,8 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        $order->delete();
+        $order->delete();       
+        // Order::truncate();
         return response()->json([
             'message'=>'customer deleted'
         ], 204
