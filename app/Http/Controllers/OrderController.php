@@ -15,6 +15,8 @@ class OrderController extends Controller
         $orders = Order::paginate(10);
         // dd($orders);
         return response()->json([
+            'code'=>'0',
+            'info'=>'OK',
             'data'=>$orders
         ]);
     }
@@ -47,6 +49,8 @@ class OrderController extends Controller
         // 'teknisi_id'=>$request->teknisi_id,
         // 'paket_id'=>$request->paket_id
         return response()->json([
+            'code'=>'0',
+            'info'=>'OK',
             'data'=>$order
         ]);
     }
@@ -60,6 +64,8 @@ class OrderController extends Controller
         $status = $order->status;
         dd($status);
         return response()->json([
+            'code'=>'0',
+            'info'=>'OK',
             'data'=>$order
         ], 200
     );
@@ -88,6 +94,8 @@ class OrderController extends Controller
         $order->save();
 
         return response()->json([
+            'code'=>'0',
+            'info'=>'OK',
             'data'=>$order
         ], 200
         );
