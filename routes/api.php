@@ -3,6 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\TeknisiController;
+use App\Models\Paket;
+use App\Models\Teknisi;
+use App\Models\User;
+
 use App\Http\Controllers\CredentialController;
 
 /*
@@ -50,4 +56,19 @@ use App\Http\Controllers\CredentialController;
 // });
 
 Route::apiResource('order', OrderController::class);
+// Route::get('/getAllPaket', function () {
+//     $paket = Paket::get(); // Use `User` model to get paket
+//     return response()->json($paket);
+// });
+Route::get('getAllPaket', [PaketController::class, 'getAllPaket']);
+Route::get('getPaket/{id}', [PaketController::class, 'getPaket']);
+Route::get('getAllTeknisi', [TeknisiController::class, 'getAllTeknisi']);
+Route::get('getTeknisi/{id}', [TeknisiController::class, 'getTeknisi']);
+
+
+Route::get('/users', function () {
+    $users = User::get(); // Use `User` model to get users
+    return response()->json($users);
+});
+
 Route::post('login', [CredentialController::class, 'login']);

@@ -9,13 +9,10 @@ class Teknisi extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'phone',
-        'nip',
-    ];
 
-    public function orders(){
+
+    public function orders()
+    {
         return $this->hasMany('App\Models\Order');
     }
 }
