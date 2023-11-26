@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeknisiController;
+use App\Models\Teknisi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+Route::get('getAllPaket', [PaketController::class, 'getAllPaket']);
+Route::get('getPaket/{id}', [PaketController::class, 'getPaket']);
+Route::get('getPaket', [PaketController::class, 'getPaket']);
+Route::get('getAllTeknisi', [TeknisiController::class, 'getAllTeknisi']);
+Route::get('getTeknisi/{id}', [TeknisiController::class, 'getTeknisi']);
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,4 +40,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

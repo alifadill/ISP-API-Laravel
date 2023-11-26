@@ -9,6 +9,13 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+      ],
+    
+
     theme: {
         extend: {
             fontFamily: {
@@ -19,3 +26,5 @@ export default {
 
     plugins: [forms],
 };
+
+
