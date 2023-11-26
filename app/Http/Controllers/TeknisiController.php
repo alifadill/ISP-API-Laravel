@@ -10,7 +10,7 @@ class TeknisiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getTeknisi()
+    public function getAllTeknisi()
     {
         $data = Teknisi::all();
         $data_teknisi = [
@@ -19,9 +19,30 @@ class TeknisiController extends Controller
             'data' => $data
         ];
 
-        // return response()->json($data_teknisi);
-        return view('teknisi.index', ['data_teknisi' => $data_teknisi]);
+        return response()->json($data_teknisi);
     }
+
+    public function getTeknisi($id)
+    {
+        $teknisi = Teknisi::find($id);
+
+        if ($teknisi) {
+            $data_teknisi = [
+                'code' => 0,
+                'info' => 'OK',
+                'data' => $teknisi
+            ];
+        } else {
+            $data_teknisi = [
+                'code' => 1,
+                'info' => 'Not Found',
+                'data' => null
+            ];
+        }
+
+        return response()->json($data_teknisi);
+    }
+
 
 
     /**

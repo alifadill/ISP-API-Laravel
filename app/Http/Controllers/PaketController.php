@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PaketController extends Controller
 {
-    public function getPaket()
+    public function getAllPaket()
     {
         $data = Paket::all();
         $data_paket = [
@@ -16,7 +16,25 @@ class PaketController extends Controller
             'data' => $data
         ];
 
-        return view('paket.index', ['data_paket' => $data_paket]);
-        // return response()->json($data_paket);
+        return response()->json($data_paket);
+    }
+
+    public function getPaket($id)
+    {
+        $data_paket = Paket::find($id);
+
+        if ($data_paket) {
+            return response()->json([
+                'code' => 0,
+                'info' => 'OK',
+                'data' => $data_paket
+            ]);
+        } else {
+            return response()->json([
+                'code' => 1,
+                'info' => 'Not Found',
+                'data' => null
+            ], 404);
+        }
     }
 }

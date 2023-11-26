@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('paket', [PaketController::class, 'getPaket']);
-Route::get('teknisi', [TeknisiController::class, 'getTeknisi']);
+Route::get('getAllPaket', [PaketController::class, 'getAllPaket']);
+Route::get('getPaket/{id}', [PaketController::class, 'getPaket']);
+Route::get('getPaket', [PaketController::class, 'getPaket']);
+Route::get('getAllTeknisi', [TeknisiController::class, 'getAllTeknisi']);
+Route::get('getTeknisi/{id}', [TeknisiController::class, 'getTeknisi']);
 
 
 Route::get('/', function () {
