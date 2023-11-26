@@ -15,19 +15,19 @@ class Order extends Model
     protected $guarded = [];
 
     public function user(){
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function paket(){
-        return $this->hasOne('Paket');
+        return $this->belongsTo('App\Models\Paket');
     }
 
     public function teknisi(){
-        return $this->hasOne('Teknisi');
+        return $this->belongsTo('App\Models\Teknisi');
     }
 
     public function status(){
-        return $this->hasOne('App\Models\Status');
+        return $this->belongsTo('App\Models\Status');
     }
     
 }
