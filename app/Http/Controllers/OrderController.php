@@ -43,11 +43,12 @@ class OrderController extends Controller
             'address'=>$request->address,
             'subdistrict'=>$request->subdistrict,
             'city'=>$request->city,
+            'status_id'=>$request->status_id,
+            'user_id'=>$request->user_id,
+            'teknisi_id'=>$request->teknisi_id,
+            'paket_id'=>$request->paket_id
         ]);
         // $order->'status_id'=>$request->status_id,
-        // 'user_id'=>$request->user_id,
-        // 'teknisi_id'=>$request->teknisi_id,
-        // 'paket_id'=>$request->paket_id
         return response()->json([
             'code'=>'0',
             'info'=>'OK',
@@ -62,7 +63,7 @@ class OrderController extends Controller
     {
         // dd($order);
         $status = $order->status;
-        dd($status);
+        // dd($status);
         return response()->json([
             'code'=>'0',
             'info'=>'OK',
