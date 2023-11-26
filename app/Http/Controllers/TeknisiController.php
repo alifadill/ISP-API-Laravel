@@ -10,7 +10,7 @@ class TeknisiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getAllTeknisi()
+    public function getAllPaket()
     {
         $data = Teknisi::all();
         $data_teknisi = [
