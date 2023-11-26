@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CredentialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,4 @@ use App\Http\Controllers\OrderController;
 // });
 
 Route::apiResource('order', OrderController::class);
+Route::post('login', [CredentialController::class, 'login']);
