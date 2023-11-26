@@ -40,4 +40,34 @@ class CredentialController extends Controller
             ], 404);
         }
     }
+
+    public function logout(Request $request){
+        $request->user_id;
+        $request->username;
+
+        $user = User::where('id', $request->user_id)->first();
+        if($user){
+            if($user->name!=$request->username){
+                return response()->json([
+                    "code"=>"1",
+                    "info"=>"Username Salah!",
+                ], 404);
+            }
+            
+            return response()->json([
+                "code"=>"0",
+                "info"=>"OK",
+                "data"=>[
+                    "id"=>$user->id,
+                    "username"=>$user->name
+                ]
+            ]
+            , 200);
+        }else{
+            return response()->json([
+                "code"=>"1",
+                "info"=>"User tidak ditemukan!",
+            ], 404);
+        }
+    }
 }

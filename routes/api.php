@@ -72,3 +72,4 @@ Route::get('/users', function () {
 });
 
 Route::post('login', [CredentialController::class, 'login']);
+Route::post('logout', [CredentialController::class, 'logout']);
