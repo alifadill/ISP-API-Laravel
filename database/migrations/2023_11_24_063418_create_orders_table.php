@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('subdistrict');
             $table->string('city');
-            $table->string('status_id');
-            $table->string('user_id');
-            $table->string('teknisi_id');
-            $table->string('paket_id');
+            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('paket_id');
+            $table->unsignedBigInteger('teknisi_id');
             $table->timestamps();
         });
     }

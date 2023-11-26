@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Teknisi extends Model
 {
     use HasFactory;
+
+    public function orders(){
+        return $this->hasMany('App\Models\Order');
+    }
 }
