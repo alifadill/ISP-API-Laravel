@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaketController extends Controller
 {
@@ -42,10 +43,15 @@ class PaketController extends Controller
         $data_paket = Paket::find($id);
 
         if ($data_paket) {
+            $orderCount = DB::table('orders')
+                ->where('paket_id', $id)
+                ->count();
+
             return response()->json([
                 'code' => 0,
                 'info' => 'OK',
-                'data' => $data_paket
+                'data' => $data_paket,
+                'order_count' => $orderCount,
             ]);
         } else {
             return response()->json([

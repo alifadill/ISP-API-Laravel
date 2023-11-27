@@ -66,7 +66,8 @@ Route::get('getAllTeknisi', [TeknisiController::class, 'getAllTeknisi']);
 Route::get('getTeknisi/{id}', [TeknisiController::class, 'getTeknisi']);
 
 
-Route::get('shortPaket', [PaketController::class, 'shortPaket']);
+Route::get('shortPaket/{id}', [PaketController::class, 'shortPaket']);
+Route::get('shortTeknisi/{id}', [TeknisiController::class, 'shortTeknisi']);
 
 
 
