@@ -9,6 +9,7 @@ use App\Models\Paket;
 use App\Models\Teknisi;
 use App\Models\User;
 
+use App\Http\Controllers\CredentialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +77,6 @@ Route::get('/users', function () {
     $users = User::get(); // Use `User` model to get users
     return response()->json($users);
 });
+
+Route::post('login', [CredentialController::class, 'login']);
+Route::post('logout', [CredentialController::class, 'logout']);
