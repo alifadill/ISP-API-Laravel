@@ -85,13 +85,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        $order->address = $request->address;
-        $order->subdistrict = $request->subdistrict;
-        $order->city = $request->city;
-        $order->status_id = $request->status_id;
-        $order->user_id = $request->user_id;
-        $order->teknisi_id = $request->teknisi_id;
-        $order->paket_id = $request->paket_id;
+        $order->address = $request->address ?? $order->address;
+        $order->subdistrict = $request->subdistrict ?? $order->subdistrict;
+        $order->city = $request->city ?? $order->city; 
+        $order->status_id = $request->status_id ?? $order->status_id;
+        $order->user_id = $request->user_id ?? $order->user_id;
+        $order->teknisi_id = $request->teknisi_id ?? $order->teknisi_id;
+        $order->paket_id = $request->paket_id ?? $order->paket_id;
         $order->save();
 
         return response()->json([
