@@ -10,7 +10,9 @@ class PaketController extends Controller
 {
     public function getAllPaket()
     {
-        $data = Paket::all();
+        // $data = Paket::all();
+        $data = Paket::withCount('orders')->orderBy('orders_count','DESC')->get();
+
         $data_paket = [
             'code' => 0,
             'info' => 'OK',

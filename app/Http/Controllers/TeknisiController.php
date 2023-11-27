@@ -13,7 +13,18 @@ class TeknisiController extends Controller
      */
     public function getAllTeknisi()
     {
-        $data = Teknisi::all();
+        // $data = Teknisi::all();
+        // query sql => SELECT teknisis.name, teknisis.id, COUNT(orders.teknisi_id) as total_order FROM orders RIGHT JOIN teknisis ON orders.teknisi_id=teknisis.id GROUP BY teknisis.id ORDER BY `total_order` DESC
+
+        // query builder Laravel ""
+        // $data = Teknisi::join('orders', 'orders.teknisi_id', '=', 'teknisi.id', 'LEFT')
+        //         ->select('teknisi.name', 'teknisi.id', 'orders.teknisi_id')
+        //         ->groupBy('teknisi.id')
+        //         ->orderBy('orders_count', 'DESC')
+        //         ->get();
+
+        //
+        $data = Teknisi::withCount('orders')->orderBy('orders_count', 'DESC')->get();
         $data_teknisi = [
             'code' => 0,
             'info' => 'OK',
