@@ -37,4 +37,22 @@ class PaketController extends Controller
             ], 404);
         }
     }
+    public function shortPaket($id)
+    {
+        $data_paket = Paket::find($id);
+
+        if ($data_paket) {
+            return response()->json([
+                'code' => 0,
+                'info' => 'OK',
+                'data' => $data_paket
+            ]);
+        } else {
+            return response()->json([
+                'code' => 1,
+                'info' => 'Not Found',
+                'data' => null
+            ], 404);
+        }
+    }
 }

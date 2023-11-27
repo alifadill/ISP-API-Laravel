@@ -65,6 +65,13 @@ Route::get('getAllTeknisi', [TeknisiController::class, 'getAllTeknisi']);
 Route::get('getTeknisi/{id}', [TeknisiController::class, 'getTeknisi']);
 
 
+Route::get('shortPaket', [PaketController::class, 'shortPaket']);
+
+
+
+
+
+
 Route::get('/users', function () {
     $users = User::get(); // Use `User` model to get users
     return response()->json($users);
